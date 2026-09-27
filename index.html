@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0d14" />
+  <title>Knowledge Team • Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="site-loader" id="siteLoader" aria-label="Loading Knowledge Team">
+    <div class="loader-grid"></div>
+    <div class="loader-particle p1"></div><div class="loader-particle p2"></div><div class="loader-particle p3"></div><div class="loader-particle p4"></div><div class="loader-particle p5"></div><div class="loader-particle p6"></div>
+    <div class="loader-ring ring-a"></div><div class="loader-ring ring-b"></div><div class="loader-ring ring-c"></div>
+    <div class="loader-center">
+      <div class="loader-orb"><span>🎓</span><b></b></div>
+      <div class="loader-eyebrow">WELCOME BACK</div>
+      <div class="loader-brand">knowledge team</div>
+      <div class="loader-subtitle">Command Center</div>
+      <div class="loader-progress-wrap"><div class="loader-bar"><i></i></div><strong id="loaderPercent">0%</strong></div>
+      <div class="loader-status"><span id="loaderStatusText">Preparing your workspace</span><span class="loader-dots">...</span></div>
+    </div>
+    <div class="loader-footer"><span>SECURE WORKSPACE</span><i></i><span>INITIALIZING</span></div>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><span>KT</span></div>
+        <div class="brand-copy">
+          <strong>Knowledge Team</strong>
+          <span>Command Center</span>
+        </div>
+        <button class="icon-btn sidebar-close" id="closeSidebar" aria-label="Close navigation">×</button>
+      </div>
+
+      <div class="workspace">
+        <span class="workspace-label">WORKSPACE</span>
+        <button class="workspace-switch">
+          <span class="workspace-dot"></span>
+          <span>Internal Operations</span>
+          <span class="chevron">⌄</span>
+        </button>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-label">OVERVIEW</div>
+        <button class="nav-btn active" data-section="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span><kbd>1</kbd></button>
+        <div class="nav-label logs-label">LOGS</div>
+        <button class="nav-btn" data-section="retrainingLog"><span class="nav-icon">▤</span><span>LOG RE-TRAINING STAFF</span></button>
+        <button class="nav-btn" data-section="banLog"><span class="nav-icon">⚠</span><span>LOG BAN</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="health-card">
+          <div class="health-top"><span class="pulse"></span><span>System healthy</span><span class="health-dot"></span></div>
+          <p>Local prototype • browser storage</p>
+        </div>
+        <button class="theme-btn" id="themeToggle"><span>◐</span><span>Toggle appearance</span><span id="themeLabel">Dark</span></button>
+        <div class="user-chip">
+          <div class="avatar">KT</div>
+          <div><strong>Team Admin</strong><span>Local workspace</span></div>
+          <span class="more">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu icon-btn" id="openSidebar" aria-label="Open navigation">☰</button>
+        <div class="breadcrumbs"><span>Knowledge Team</span><b>/</b><strong id="crumb">Dashboard</strong></div>
+        <div class="top-actions">
+          <button class="icon-btn notification-btn" aria-label="Notifications"><span>♢</span><i></i></button>
+          <button class="avatar avatar-sm">KT</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="page active" id="dashboard">
+          <div class="hero">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-dot"></span>KNOWLEDGE TEAM / OVERVIEW</div>
+              <h1>Good evening, team.</h1>
+              <p>Here’s what’s happening across recruitment, staff issues and retraining.</p>
+              <div class="appy-sync-status" id="appySyncStatus">Appy Live • connecting to Discord…</div>
+            </div>
+            <div class="hero-actions">
+              <span class="live-pill" id="livePill"><i></i> LIVE</span>
+              <button class="secondary" id="refreshBtn">↻ <span>Refresh</span></button>
+            </div>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric-card accent-violet">
+              <div class="metric-head"><span>Applications</span><span class="metric-icon">↗</span></div>
+              <strong id="applicationsMonth">0</strong>
+              <div class="metric-foot"><span class="trend positive" id="applicationsWeek">0 total</span><span>Appy export</span></div>
+            </article>
+            <article class="metric-card accent-green auto-metric">
+              <div class="metric-head"><span>Accepted</span><span class="metric-icon">✓</span></div>
+              <strong id="accepted">0</strong>
+              <div class="metric-foot"><span class="trend positive" id="acceptRate">0%</span><span>of decided • automatic</span></div>
+            </article>
+            <article class="metric-card accent-red auto-metric">
+              <div class="metric-head"><span>Denied</span><span class="metric-icon">×</span></div>
+              <strong id="rejected">0</strong>
+              <div class="metric-foot"><span class="trend neutral" id="rejectRate">0%</span><span>of decided • automatic</span></div>
+            </article>
+            <article class="metric-card accent-blue">
+              <div class="metric-head"><span>Interview pass rate</span><span class="metric-icon">◎</span></div>
+              <strong id="interviewRate">0%</strong>
+              <div class="metric-foot"><span class="trend positive">Recorded outcomes</span><span>interviews</span></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-head"><span>Avg. processing</span><span class="metric-icon">◷</span></div>
+              <strong id="processingTime">0 days</strong>
+              <div class="metric-foot"><span class="trend neutral">Application → decision</span></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-head"><span>In training</span><span class="metric-icon">✦</span></div>
+              <strong id="trainingCount">0</strong>
+              <div class="metric-foot"><span class="trend neutral">Pending applications</span></div>
+            </article>
+            <article class="metric-card accent-amber">
+              <div class="metric-head"><span>Outstanding</span><span class="metric-icon">!</span></div>
+              <strong id="outstanding">0</strong>
+              <div class="metric-foot"><span class="trend warning">Needs attention</span></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-head"><span>Avg. mentoring</span><span class="metric-icon">◫</span></div>
+              <strong id="mentoringTime">0 days</strong>
+              <div class="metric-foot"><span class="trend neutral">Mentoring lifecycle</span></div>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel chart-panel">
+              <div class="panel-head">
+                <div><span class="panel-kicker">ACTIVITY</span><h2>Recruitment volume</h2><p>Applications recorded across the last 8 weeks.</p></div>
+                <button class="ghost-btn">Last 8 weeks <span>⌄</span></button>
+              </div>
+              <div id="weeklyChart" class="chart"></div>
+            </article>
+
+            <article class="panel insight-panel">
+              <div class="panel-head">
+                <div><span class="panel-kicker">INSIGHTS</span><h2>Where issues happen</h2><p>Areas linked to recorded staff actions.</p></div>
+                <span class="live-pill"><i></i> Live</span>
+              </div>
+              <div id="issueSummary" class="bars"></div>
+              <div class="insight-footer"><span>Use patterns to target retraining.</span></div>
+            </article>
+          </div>
+
+          <div class="dashboard-grid lower">
+            <article class="panel">
+              <div class="panel-head">
+                <div><span class="panel-kicker">STAFF</span><h2>Removal & blacklist reasons</h2></div>
+                <button class="ghost-btn" id="addBlacklist">＋ Add</button>
+              </div>
+              <div id="removalReasons" class="reason-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page" id="retrainingLog">
+          <div class="training-log-hero">
+            <div class="training-log-hero-copy">
+              <div class="eyebrow"><span class="eyebrow-dot"></span>LOGS / STAFF RETRAINING</div>
+              <h1>Log Re-Training Staff</h1>
+              <p>Keep a clean record of who was re-trained, which team they belong to, and when the training was logged.</p>
+              <div class="training-log-hero-meta"><span><i class="meta-dot"></i>Private local workspace</span><span>•</span><span id="logHeroMeta">Ready for your first log</span></div>
+            </div>
+            <div class="training-log-hero-action">
+              <div class="hero-action-label">CREATE A NEW RECORD</div>
+              <button class="log-training-cta" id="addRetrainingLog"><span class="cta-plus">＋</span><span><b>Log Training</b><small>Start a new staff training record</small></span><span class="cta-arrow">→</span></button>
+            </div>
+          </div>
+
+          <div class="log-stat-grid">
+            <article class="log-stat"><span class="stat-icon violet">▤</span><div><small>TOTAL LOGS</small><strong id="logTotal">0</strong><span>All training records</span></div></article>
+            <article class="log-stat"><span class="stat-icon green">✓</span><div><small>LOGGED TODAY</small><strong id="logToday">0</strong><span>Created today</span></div></article>
+            <article class="log-stat"><span class="stat-icon blue">◎</span><div><small>TEAMS USED</small><strong id="logTeams">0</strong><span>Unique teams</span></div></article>
+          </div>
+
+          <div class="log-section-head">
+            <div><span class="panel-kicker">TRAINING HISTORY</span><h2>Recent training logs</h2><p>Open any record to view the full details.</p></div>
+            <span class="log-count" id="logSummary">0 logs</span>
+          </div>
+
+          <div class="log-cards" id="retrainingLogCards"></div>
+
+          <div class="log-guidance">
+            <div class="guidance-icon">✓</div>
+            <div><strong>Keep every training record consistent</strong><p>Use the exact Discord name, In-City ID and team so the log stays easy to review later.</p></div>
+          </div>
+        </section>
+
+        <section class="page" id="banLog">
+          <div class="training-log-hero ban-hero">
+            <div class="training-log-hero-copy">
+              <div class="eyebrow"><span class="eyebrow-dot"></span>LOGS / BAN RECORDS</div>
+              <h1>⚠ Log Ban</h1>
+              <p>Create a clear ban record, then post the details in the <b>#BANS</b> channel in the MAIN KNG Discord. Once the record is logged here, you can open it anytime.</p>
+              <div class="training-log-hero-meta"><span><i class="meta-dot"></i>Local workspace</span><span>•</span><span id="banHeroMeta">Ready for your first ban log</span></div>
+            </div>
+            <div class="training-log-hero-action">
+              <div class="hero-action-label">CREATE A BAN RECORD</div>
+              <button class="log-training-cta ban-cta" id="addBanLog"><span class="cta-plus">⚠</span><span><b>Log Ban</b><small>Enter the ban details</small></span><span class="cta-arrow">→</span></button>
+            </div>
+          </div>
+
+          <div class="ban-instruction">
+            <div class="guidance-icon">⚠</div>
+            <div><strong>PLEASE LOG IN #BANS CHANNEL IN THE MAIN KNG DISCORD</strong><p>Use the exact name, ID and reason from the form. After saving the record, use <b>Open log</b> to review the details.</p></div>
+          </div>
+
+          <div class="log-section-head">
+            <div><span class="panel-kicker">BAN HISTORY</span><h2>Recent ban logs</h2><p>Open any saved record to view the full details.</p></div>
+            <span class="log-count" id="banSummary">0 logs</span>
+          </div>
+          <div class="log-cards" id="banLogCards"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <div class="modal-head"><div><span class="panel-kicker">NEW RECORD</span><h2 id="modalTitle">Add record</h2></div><button class="icon-btn" id="closeModal">×</button></div>
+      <form id="recordForm"></form>
+    </div>
+  </div>
+  <div class="profile-widget" id="profileWidget">
+    <button class="profile-fab" id="profileFab" type="button" aria-label="Open profile settings" aria-expanded="false">
+      <span class="profile-person">●</span>
+      <span class="profile-fab-name" id="profileFabName">Team Admin</span>
+    </button>
+    <div class="profile-menu hidden" id="profileMenu" role="dialog" aria-label="Profile settings">
+      <div class="profile-menu-head">
+        <div class="profile-menu-avatar" id="profileMenuAvatar">TA</div>
+        <div><span class="panel-kicker">YOUR PROFILE</span><strong id="profileMenuName">Team Admin</strong><small>Saved in this browser</small></div>
+      </div>
+      <div class="profile-field">
+        <label for="profileNameInput">Change Name</label>
+        <div class="profile-name-row"><input id="profileNameInput" type="text" maxlength="40" placeholder="Enter your name" /><button class="primary profile-save" id="saveProfileName" type="button">Save</button></div>
+      </div>
+      <button class="appearance-row" id="profileThemeToggle" type="button">
+        <span class="appearance-icon" id="profileThemeIcon">◐</span>
+        <span><strong>Appearance</strong><small id="profileThemeText">Dark mode</small></span>
+        <span class="appearance-switch" id="profileThemeSwitch"><i></i></span>
+      </button>
+    </div>
+  </div>
+  <div class="toast" id="toast"><span>✓</span><span id="toastText">Saved</span></div>
+  <script src="script.js"></script>
+</body>
+</html>
